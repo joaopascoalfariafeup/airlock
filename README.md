@@ -78,15 +78,17 @@ This example does more than the assignment asks. Your project needs:
   diagram of the main scenario.
 - **Testing:** scenarios with expected logs, described in your TEST.md,
   that together take every state and transition of every state machine and
-  stress every property, all run by one command; and a review of the code of
-  each state machine against its diagram.
+  stress every property, all run by one command; at least one scenario with a
+  race, run several times, whose expected log allows every valid outcome
+  (here S5, run ten times); and a review of the code of each state machine
+  against its diagram.
 
 These parts are optional: copy them if they help, and leave them out if not.
 
-- Expected logs with alternatives (`or`) or gaps (`...`).
+- Alternatives (`or`) and gaps (`...`) beyond what a race scenario needs.
 - Users with routes: simpler fake users that just press buttons at given
   times are enough.
-- `REPEAT`, to run every scenario many times.
+- `REPEAT`, to run *every* scenario many times.
 
 ## What this example leaves out
 
