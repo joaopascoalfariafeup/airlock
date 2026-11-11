@@ -87,3 +87,7 @@ These parts are optional: copy them if they help, and leave them out if not.
 - It ignores a press while a door is closing, and has no obstruction sensor,
   to keep the code short. `SPEC.md` describes both.
 - Times are checked only where an expected log gives a bound.
+
+## License
+
+MIT (see `LICENSE`): copy and adapt any of it, code and documents, in your project; say so in your agent log.
