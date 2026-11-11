@@ -7,7 +7,7 @@ second assignment: behavioural models (state machines, sequence diagrams and
 temporal properties) turned into concurrent code by AI agents, and checked by
 timed scenario tests.
 
-A worked example of Assignment II: a two-door airlock built as three active
+It is a two-door airlock built as three active
 objects, each on its own thread. Two doors and an interlocker, which holds the
 token that gives a door the right to open, exchange messages over bounded
 queues. Each door's hardware is faked by a thread of its own, and the tests
