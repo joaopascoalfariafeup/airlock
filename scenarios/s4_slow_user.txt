@@ -1,0 +1,5 @@
+# S4: the user is slower than MAX_OPEN, so door A closes on its timer before
+# the user gets there; the user stays outside.
+walk = 7000
+cross = 500
+user 1 at 0 through a b

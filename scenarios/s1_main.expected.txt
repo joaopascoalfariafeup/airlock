@@ -1,0 +1,34 @@
+# Expected log of S1: one line per arrow to or from a controller, in order.
+# Copied from its sequence diagram in SPEC.md, section 3.2; never copied from
+# the program's output. "t1:" labels a line, and "within 11000 of t1" bounds
+# the time from that line (TEST.md, section 3.3); "after" gives a lower bound.
+t1: In(A, Button)
+Out(A, Request)
+LockOut(Granted(A))
+Out(A, Motor(Open))
+Out(A, StartTimer(2000))
+In(A, FullyOpen)            within 11000 of t1    # P2: RESPONSE_LIMIT
+Out(A, Light(Green))
+Out(A, StartTimer(5000))
+In(A, Passed)
+Out(A, Light(Red))
+Out(A, Motor(Close))
+Out(A, StartTimer(2000))
+t2: In(B, Button)
+Out(B, Request)
+In(A, Closed)
+Out(A, StopTimer)
+Out(A, Release)
+LockOut(Granted(B))
+Out(B, Motor(Open))
+Out(B, StartTimer(2000))
+In(B, FullyOpen)            within 11000 of t2    # P2: RESPONSE_LIMIT
+Out(B, Light(Green))
+Out(B, StartTimer(5000))
+In(B, Passed)
+Out(B, Light(Red))
+Out(B, Motor(Close))
+Out(B, StartTimer(2000))
+In(B, Closed)
+Out(B, StopTimer)
+Out(B, Release)

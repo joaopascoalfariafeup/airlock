@@ -1,0 +1,7 @@
+# S6: a user goes into the airlock through A, and then back out through A.
+# The user presses A again only after it has closed (cross is longer than the
+# door takes to close): a press while it is closing would be ignored, and
+# these users never press again.
+walk = 1000
+cross = 1500
+user 1 at 0 through a a

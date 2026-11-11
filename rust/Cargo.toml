@@ -1,0 +1,9 @@
+[package]
+name = "airlock_rust"
+version = "0.1.0"
+edition = "2021"
+
+# No dependencies: only the standard library.
+
+# Stand-alone crate: not a member of any enclosing workspace.
+[workspace]

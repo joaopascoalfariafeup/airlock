@@ -1,0 +1,14 @@
+# Expected log of S2: one line per arrow to or from a controller, in order;
+# a line may be labelled, or bounded in time (TEST.md, section 3.3).
+# Written from its description in TEST.md, section 2.1; never
+# copied from the program's output.
+# "..." stands for any number of lines: here, only the end of the log is compared.
+...
+In(A, Passed)
+Out(A, Light(Red))
+Out(A, Motor(Close))
+t1: Out(A, StartTimer(2000))
+In(B, Button)
+Out(B, Request)
+In(A, Timeout)              after 2000 of t1  within 2000 of t1    # P3: MOVE_TIMEOUT
+Out(A, Alarm)

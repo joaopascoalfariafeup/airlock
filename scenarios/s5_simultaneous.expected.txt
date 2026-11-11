@@ -1,0 +1,43 @@
+# Expected log of S5: one line per arrow to or from a controller, in order;
+# a line may be labelled, or bounded in time (TEST.md, section 3.3).
+# Written from its description in TEST.md, section 2.1; never
+# copied from the program's output. "..." stands for any number of lines, and
+# "or" separates the two alternatives: the log must match one of them.
+
+# A's request arrives first
+...                     # both users press, and both requests reach the interlocker
+LockOut(Granted(A))
+...                     # door cycle of A: user 1 goes into the airlock, and presses B
+In(A, Closed)
+Out(A, StopTimer)
+Out(A, Release)
+LockOut(Granted(B))
+...                     # door cycle of B: users 1 and 2 swap places; user 2 presses A
+In(B, Closed)
+Out(B, StopTimer)
+Out(B, Release)
+...                     # user 2's press at A comes just before B's release, or just after
+LockOut(Granted(A))
+...                     # door cycle of A: user 2 goes through
+In(A, Closed)
+Out(A, StopTimer)
+Out(A, Release)
+or
+# B's request arrives first
+...                     # both users press, and both requests reach the interlocker
+LockOut(Granted(B))
+...                     # door cycle of B: user 2 goes into the airlock, and presses A
+In(B, Closed)
+Out(B, StopTimer)
+Out(B, Release)
+LockOut(Granted(A))
+...                     # door cycle of A: users 1 and 2 swap places; user 1 presses B
+In(A, Closed)
+Out(A, StopTimer)
+Out(A, Release)
+...                     # user 1's press at B comes just before A's release, or just after
+LockOut(Granted(B))
+...                     # door cycle of B: user 1 goes through
+In(B, Closed)
+Out(B, StopTimer)
+Out(B, Release)

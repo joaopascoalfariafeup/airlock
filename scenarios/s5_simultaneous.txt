@@ -1,0 +1,7 @@
+# S5: two users arrive at the same time, one outside at A who wants to go in,
+# and one in the room at B who wants to go out. Either door may be served
+# first; run it a few times to see both.
+walk = 1000
+cross = 500
+user 1 at 0 through a b
+user 2 at 0 through b a

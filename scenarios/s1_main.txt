@@ -1,0 +1,5 @@
+# S1, the main scenario: a user goes in, through A and then B.
+# Compare the log with the sequence diagram in SPEC.md, section 3.2.
+walk = 1000
+cross = 500
+user 1 at 0 through a b

@@ -1,0 +1,6 @@
+# S3: a user wants to go in, but door A never confirms that it is fully open.
+# A goes to Fault and sounds the alarm, and keeps the token.
+walk = 1000
+cross = 500
+stuck = a 1
+user 1 at 0 through a b

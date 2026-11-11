@@ -1,0 +1,22 @@
+# Expected log of S6: one line per arrow to or from a controller, in order;
+# a line may be labelled, or bounded in time (TEST.md, section 3.3).
+# Written from its description in TEST.md, section 2.1; never copied
+# from the program's output. "..." stands for any number of lines.
+t1: In(A, Button)
+Out(A, Request)
+LockOut(Granted(A))
+...
+In(A, FullyOpen)            within 11000 of t1    # P2: RESPONSE_LIMIT
+...                         # the user goes into the airlock
+In(A, Closed)
+Out(A, StopTimer)
+Out(A, Release)
+t2: In(A, Button)           # once A has closed, the user presses it again
+Out(A, Request)
+LockOut(Granted(A))
+...
+In(A, FullyOpen)            within 11000 of t2    # P2: RESPONSE_LIMIT
+...                         # the user goes back out
+In(A, Closed)
+Out(A, StopTimer)
+Out(A, Release)

@@ -1,0 +1,16 @@
+# Expected log of S4: one line per arrow to or from a controller, in order;
+# a line may be labelled, or bounded in time (TEST.md, section 3.3).
+# Written from its description in TEST.md, section 2.1; never
+# copied from the program's output.
+# "..." stands for any number of lines: here, only the end of the log is compared.
+...
+In(A, FullyOpen)
+Out(A, Light(Green))
+t1: Out(A, StartTimer(5000))
+In(A, Timeout)              after 5000 of t1  within 5000 of t1    # P4: MAX_OPEN
+Out(A, Light(Red))
+Out(A, Motor(Close))
+Out(A, StartTimer(2000))
+In(A, Closed)
+Out(A, StopTimer)
+Out(A, Release)

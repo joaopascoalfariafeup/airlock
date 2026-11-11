@@ -1,0 +1,7 @@
+# S2: as the main scenario, a user goes in through A and, once inside, presses
+# B; but door A never confirms that it has closed. A goes to Fault and sounds
+# the alarm; B is never granted the token, so the user is shut in the airlock.
+walk = 1000
+cross = 500
+stuck = a 2
+user 1 at 0 through a b
