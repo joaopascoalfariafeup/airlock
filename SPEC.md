@@ -120,12 +120,12 @@ flowchart TB
     doorA["door A controller : DoorController"]
     doorB["door B controller : DoorController"]
     il["interlocker : Interlocker"]
-    user ---|"Press, Pass ↓<br/>↑ Green, Red, Alarm"| hwA
-    user ---|"Press, Pass ↓<br/>↑ Green, Red, Alarm"| hwB
-    hwA ---|"Button, FullyOpen, Closed, Passed ↓<br/>↑ Motor, Light, Alarm"| doorA
-    hwB ---|"Button, FullyOpen, Closed, Passed ↓<br/>↑ Motor, Light, Alarm"| doorB
-    doorA ---|"Request, Release ↓<br/>↑ Granted"| il
-    doorB ---|"Request, Release ↓<br/>↑ Granted"| il
+    user ---|"Press, Pass ↓\n↑ Green, Red, Alarm"| hwA
+    user ---|"Press, Pass ↓\n↑ Green, Red, Alarm"| hwB
+    hwA ---|"Button, FullyOpen, Closed, Passed ↓\n↑ Motor, Light, Alarm"| doorA
+    hwB ---|"Button, FullyOpen, Closed, Passed ↓\n↑ Motor, Light, Alarm"| doorB
+    doorA ---|"Request, Release ↓\n↑ Granted"| il
+    doorB ---|"Request, Release ↓\n↑ Granted"| il
     classDef env stroke-dasharray: 5 5
     class user env
 ```
