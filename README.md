@@ -26,6 +26,7 @@ folder with one of `rust/` or `java/`, or with everything at the top.
 | Scenario files and expected logs (S1 to S6), read by both versions | [scenarios/](scenarios/) |
 | tracecheck: compares actual logs with expected logs, for any language (Python, standard library only) | [tracecheck/](tracecheck/README.md) |
 | Agent context: rules for any language | [AGENTS.md](AGENTS.md) |
+| Agent skills: add a scenario, derive an expected log, review a state machine | [.github/skills/](.github/skills/) |
 | Rust version: code, tests, agent context, agent log | [rust/](rust/README.md) |
 | Java version: code, tests, agent context, agent log | [java/](java/README.md) |
 
@@ -68,6 +69,24 @@ that does not apply to your controller.
 Prove early that your adapted setup really tests something: break the code on
 purpose, for example release the token too early, and check that a scenario
 fails.
+
+## Agent skills
+
+A skill is a folder with a `SKILL.md` file: instructions that an agent loads
+only when a task needs them. GitHub Copilot (agent mode in VS Code, the
+Copilot CLI and the cloud agent) finds them in `.github/skills/`; other agents
+read the same format. These three are examples for the steps of the
+assignment that are easy to get wrong:
+
+| Skill | When | What it does |
+|---|---|---|
+| [add-scenario](.github/skills/add-scenario/SKILL.md) | test first, step 1 | adds the next scenario of TEST.md and its expected log, runs the tests, checks that the new one fails; never touches the code |
+| [derive-expected-log](.github/skills/derive-expected-log/SKILL.md) | in a fresh session | writes an expected log from SPEC.md and TEST.md alone, citing the transitions, without reading the code or the actual logs |
+| [review-state-machine](.github/skills/review-state-machine/SKILL.md) | after a change to a decision function | compares it with its state machine, transition by transition, ignored messages included, and reports |
+
+They were written after the example was built, so the agent logs do not use
+them. Adapt them to your project, or write your own, and record in your agent
+log which skill each task used.
 
 ## What is required, and what goes beyond
 
