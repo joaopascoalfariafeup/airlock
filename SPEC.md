@@ -108,8 +108,8 @@ Exclusions:
 
 ### 3.1 Structure
 
-The system structure at runtime is described by a communication diagram (Figure 3): each box is an active object (`name : Class`) with its own thread and inbox, sharing no memory with the others (D1), each line a link between two objects (a pair of channels) labelled with the messages that the link carries, with their direction (↓ from the
-upper object to the lower one, ↑ the other way). The dashed object is the
+The system structure at runtime is described by a communication diagram (Figure 3): each box is an active object (`name : Class`) with its own thread and inbox, sharing no memory with the others (D1), each line a link between two objects, labelled with the messages that the link carries, with their direction (↓ from the
+upper object to the lower one, ↑ the other way). A line is not a queue: each object has a single inbox, one bounded queue that receives the messages of all its links, in the order they arrive, so its thread waits in one place only. The dashed object is the
 environment: the users, played by the tests, on the test's thread. The messages are not numbered, as they usually are in a communication diagram: their order is in the sequence diagram of section 3.2, which has the same objects, and in the state machines of section 3.3. 
 
 ```mermaid
